@@ -1,0 +1,19 @@
+{
+  "name": "octant-script",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@moralisweb3/common-evm-utils": "^2.23.1",
+    "alchemy-sdk": "^2.10.1",
+    "csv-parser": "^3.0.0",
+    "csv-writer": "^1.6.0",
+    "moralis": "^2.23.1"
+  }
+}
