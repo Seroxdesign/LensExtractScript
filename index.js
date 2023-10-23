@@ -8,7 +8,6 @@ const config = {
   network: Network.MATIC_MAINNET,
 };
 const alchemy = new Alchemy(config);
-let counter = 0
 const csvFilePath = './file.csv'; // Replace with your file path
 const outputCsvFilePath = 'output.csv';
 
@@ -32,13 +31,10 @@ const processCSV = async () => {
       // example: row = { _1: 'value1', _2: 'value2', _3: 'value3', _4: 'value4' }
       // then choose the key for the value you want to extract, either ens or ethereum address
       const column1Value = row._4; // Update to your column name
-      counter = counter+1
       if (column1Value) {
         try {
-
           const nfts = await alchemy.nft.getNftsForOwner(column1Value, { excludeFilters: [NftFilters.SPAM] });
           const lens = nfts.ownedNfts.find((nft) => nft.contract.address === '0xdb46d1dc155634fbc732f92e853b10b288ad5a1d');
-          console.log(column1Value, lens, counter)
           if (lens) {
             extractedData.push({ address: column1Value, lensName: lens.title, lensId: lens.tokenId });
           }
